@@ -44,7 +44,10 @@ foreach($this->tableSchema->columns as $column)
 				'caption'=>$model->isNewRecord ? 'Создать' : 'Сохранить',
 				'htmlOptions'=>array(
 					'ajax' => array(
-						'url'=>$model->isNewRecord ? $this->createUrl('create') : $this->createUrl('update', array('id'=>$model->id)),
+						//Not universal work
+						//'url'=>$model->isNewRecord ? $this->createUrl('create') : $this->createUrl('update', array('id'=>$model->id)),
+						//Universal Work
+						'url'=>$model->isNewRecord ? $this->createUrl('create') : $this->createUrl('update', array('id'=>$model-><?php echo $this->tableSchema->primaryKey;?>)),
 						'type'=>'post',
 						'data'=>'js:jQuery(this).parents("form").serialize()',
 						'success'=>'function(r){
